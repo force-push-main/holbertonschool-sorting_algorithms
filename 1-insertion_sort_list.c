@@ -68,6 +68,8 @@ void insertion_sort_list(listint_t **list)
 		if (curr_node->n > next_node->n)
 		{
 			prev_node = swap_next(curr_node, next_node);
+			if (prev_node->next == *list)
+				*list = prev_node;
 			print_list(*list);
 
 			while (prev_node->prev && prev_node->n < prev_node->prev->n)
